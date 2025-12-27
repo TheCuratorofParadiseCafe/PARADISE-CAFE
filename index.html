@@ -18,8 +18,8 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
             padding: 20px;
+            position: relative;
         }
 
         .header {
@@ -49,6 +49,8 @@
             gap: 30px;
             max-width: 1200px;
             width: 100%;
+            margin-top: 120px; /* 给header留空间 */
+            margin-bottom: 40px; /* 给版权声明留空间 */
         }
 
         .section {
@@ -75,13 +77,34 @@
             text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
         }
 
+        /* 版权声明样式 */
+        .copyright {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.85em;
+            padding: 25px;
+            width: 100%;
+            max-width: 800px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: auto; /* 推到底部 */
+        }
+
         @media (max-width: 768px) {
             .container {
                 flex-direction: column;
+                margin-top: 100px;
             }
 
             .header h1 {
                 font-size: 2.5em;
+            }
+            
+            .copyright {
+                margin-top: 30px;
+                padding: 20px;
             }
         }
     </style>
@@ -113,22 +136,10 @@
         </div>
     </div>
 
-    <!-- 版权声明 -->
-    <div style="
-        text-align: center;
-        color: rgba(255, 255, 255, 0.8);
-        font-size: 0.85em;
-        margin-top: 60px;
-        padding: 25px;
-        width: 100%;
-        max-width: 800px;
-        background: rgba(0, 0, 0, 0.2);
-        border-radius: 15px;
-        backdrop-filter: blur(5px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-    ">
+    <!-- 版权声明 - 页面底部 -->
+    <div class="copyright">
         <p style="margin-bottom: 15px; color: rgba(255, 255, 255, 0.9); font-size: 1em;">
-            📚 资料来源鸣谢
+            📚 版权与创意声明
         </p>
         
         <div style="
@@ -157,6 +168,10 @@
                 • <span style="color: #66ff88; font-weight: 500;">館長の個人blog</span> - 
                 <span style="color: rgba(255, 255, 255, 0.7);">本站原创内容</span>
             </p>
+            <p style="margin: 10px 0; line-height: 1.6;">
+                • <span style="color: #ff66cc; font-weight: 500;">网站设计与创意</span> - 
+                <span style="color: rgba(255, 255, 255, 0.7);">本站站长原创 (PARADISE CAFE 概念)</span>
+            </p>
         </div>
         
         <p style="margin-top: 20px; color: rgba(255, 255, 255, 0.6); font-size: 0.9em; line-height: 1.5;">
@@ -165,8 +180,10 @@
         </p>
         
         <p style="margin-top: 15px; color: rgba(255, 255, 255, 0.5); font-size: 0.8em;">
-            © 2024 PARADISE CAFE | 音乐资料版权归中島みゆき及相关版权方所有
+            © 2025 PARADISE CAFE | 音乐资料版权归中島みゆき及相关版权方所有
         </p>
     </div>
 </body>
 </html>
+
+
