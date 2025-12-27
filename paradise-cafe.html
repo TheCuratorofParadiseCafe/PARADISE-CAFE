@@ -139,51 +139,6 @@
             text-decoration: none;
             text-shadow: 0 0 10px yellow;
         }
-        #record-player {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 1000;
-            background: rgba(20, 10, 0, 0.85);
-            border-radius: 20px;
-            padding: 20px;
-            border: 3px solid #8b4513;
-            box-shadow: 
-                0 0 30px rgba(139, 69, 19, 0.6),
-                0 0 50px rgba(255, 215, 0, 0.2);
-            backdrop-filter: blur(10px);
-            min-width: 280px;
-            transition: transform 0.3s;
-        }
-        #vinyl-disc {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            background: 
-                radial-gradient(circle at 30% 30%, #222 0%, #000 70%),
-                repeating-radial-gradient(circle at 50% 50%, 
-                    transparent 0px, transparent 2px, 
-                    rgba(255,255,255,0.1) 2px, rgba(255,255,255,0.1) 4px);
-            border: 3px solid #5d2906;
-            position: relative;
-            box-shadow: inset 0 0 20px rgba(0,0,0,0.8);
-        }
-        #play-pause-btn {
-            background: linear-gradient(135deg, #8b4513, #d2691e);
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            color: white;
-            font-size: 1.5em;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            transition: all 0.2s;
-        }
-        #play-pause-btn:hover { transform: scale(1.1); }
         
         @keyframes rainbow {
             0% { background-position: 0% 50%; }
@@ -199,27 +154,19 @@
             90% { opacity: 1; }
             100% { left: 100vw; top: 100vh; opacity: 0; }
         }
-        @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
         
         @media (max-width: 768px) {
             h1 { font-size: 2.5em; }
             .sections { grid-template-columns: 1fr; }
             .section { padding: 20px; }
-            #record-player { 
-                bottom: 10px;
-                right: 10px;
-                left: 10px;
-                min-width: auto;
-            }
         }
     </style>
 </head>
 <body>
+    <!-- 太空背景 -->
     <div id="space"></div>
     
+    <!-- 主要内容 -->
     <div class="content">
         <h1>Welcome to the パラダイス・カフェ</h1>
         <div class="subtitle">
@@ -246,61 +193,86 @@
                 <a href="#">✨ 探索 →</a>
             </div>
         </div>
+        
+        <!-- 返回首页导航 -->
+        <div style="
+            margin-top: 80px;
+            padding: 30px;
+            background: rgba(0, 0, 0, 0.5);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+        ">
+            <div style="
+                display: flex;
+                justify-content: center;
+                gap: 30px;
+                flex-wrap: wrap;
+                margin-bottom: 20px;
+            ">
+                <a href="index.html" style="
+                    color: #ff00ff;
+                    text-decoration: none;
+                    font-size: 1.2em;
+                    padding: 10px 25px;
+                    border: 1px solid #ff00ff;
+                    border-radius: 25px;
+                    transition: all 0.3s;
+                    text-shadow: 0 0 10px #ff00ff;
+                " onmouseover="this.style.background='rgba(255,0,255,0.2)'; this.style.transform='translateY(-3px)';" 
+                   onmouseout="this.style.background='transparent'; this.style.transform='translateY(0)';">
+                    🏠 返回首页
+                </a>
+                
+                <a href="rockinsuit.html" style="
+                    color: #00ffff;
+                    text-decoration: none;
+                    font-size: 1.2em;
+                    padding: 10px 25px;
+                    border: 1px solid #00ffff;
+                    border-radius: 25px;
+                    transition: all 0.3s;
+                    text-shadow: 0 0 10px #00ffff;
+                " onmouseover="this.style.background='rgba(0,255,255,0.2)'; this.style.transform='translateY(-3px)';" 
+                   onmouseout="this.style.background='transparent'; this.style.transform='translateY(0)';">
+                    🎸 Rokin' Suit
+                </a>
+            </div>
+            
+            <p style="color: #aaa; font-size: 0.9em; margin-top: 20px;">
+                © 2025 パラダイス・カフェ | 中島みゆきファンサイト | 
+            </p>
+        </div>
     </div>
     
-    <div id="record-player">
-        <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 15px;">
-            <div id="vinyl-disc">
-                <div style="
-                    position: absolute;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%, -50%);
-                    width: 25px;
-                    height: 25px;
-                    border-radius: 50%;
-                    background: #ffd700;
-                    border: 2px solid #8b4513;
-                "></div>
-            </div>
-            <div style="flex: 1;">
-                <div style="color: #ffd700; font-size: 1.1em; font-weight: bold; margin-bottom: 5px;">
-                    🎵 パラダイス・カフェ
-                </div>
-                <div style="color: rgba(255,255,255,0.9); font-size: 0.9em;">中島みゆき</div>
-                <div style="color: rgba(255,255,255,0.6); font-size: 0.8em;">Album「転生」</div>
-            </div>
-        </div>
-        <div style="background: rgba(0,0,0,0.5); border-radius: 10px; padding: 15px; border: 1px solid rgba(139, 69, 19, 0.5);">
-            <div style="display: flex; align-items: center; justify-content: center; gap: 20px; margin-bottom: 15px;">
-                <button id="play-pause-btn">▶️</button>
-                <div id="song-status" style="color: #00ff00; font-size: 0.9em;">準備中...</div>
-            </div>
-            <div style="display: flex; flex-direction: column; gap: 10px;">
-                <div style="display: flex; align-items: center; gap: 10px;">
-                    <span style="color: rgba(255,255,255,0.7); font-size: 1.2em;">🔊</span>
-                    <input type="range" id="volume-control" min="0" max="1" step="0.1" value="0.3" style="
-                        flex: 1; height: 6px; border-radius: 3px; background: rgba(139, 69, 19, 0.5); outline: none; cursor: pointer;
-                    ">
-                    <span id="volume-text" style="color: rgba(255,255,255,0.7); min-width: 30px; text-align: center;">30%</span>
-                </div>
-                <div style="text-align: center; color: rgba(255,255,255,0.6); font-size: 0.8em;">
-                    <span id="current-time">0:00</span> / <span id="total-time">4:32</span>
-                </div>
-            </div>
-        </div>
-        <div style="text-align: center; margin-top: 15px; padding-top: 10px; border-top: 1px solid rgba(139, 69, 19, 0.3); color: rgba(255,255,255,0.5); font-size: 0.8em;">
-            ☕ パラダイス・カフェ BGM
-        </div>
-    </div>
-    
-    <audio id="paradise-song" loop preload="auto" style="display: none;">
-        <!-- 你的MP3文件链接 -->
+    <!-- 隐形音乐系统 -->
+    <audio id="invisible-bgm" loop preload="auto" style="display: none;">
         <source src="https://b36461982-byte.github.io/PARADISE-CAFE/%E3%83%8F%E3%82%9A%E3%83%A9%E3%82%BF%E3%82%99%E3%82%A4%E3%82%B9%E3%83%BB%E3%82%AB%E3%83%95%E3%82%A7.mp3" type="audio/mpeg">
     </audio>
     
+    <div id="music-hint" style="
+        position: fixed;
+        top: 15px;
+        right: 15px;
+        z-index: 999;
+        color: rgba(255,255,255,0.6);
+        font-size: 0.8em;
+        background: rgba(0,0,0,0.3);
+        padding: 5px 10px;
+        border-radius: 10px;
+        border: 1px solid rgba(255,255,255,0.1);
+        backdrop-filter: blur(5px);
+        opacity: 0;
+        transition: opacity 0.5s;
+        pointer-events: none;
+    ">
+        🎵 パラダイス・カフェ
+    </div>
+    
     <script>
+    // ========== 星空背景生成 ==========
     const space = document.getElementById('space');
+    
+    // 创建星星
     for (let i = 0; i < 1500; i++) {
         const star = document.createElement('div');
         star.className = 'star';
@@ -319,6 +291,8 @@
         }
         space.appendChild(star);
     }
+    
+    // 创建流星
     for (let i = 0; i < 8; i++) {
         const meteor = document.createElement('div');
         meteor.className = 'meteor';
@@ -340,6 +314,8 @@
         meteor.style.animationDelay = delay + 's';
         space.appendChild(meteor);
     }
+    
+    // 创建星云
     const nebulaColors = [
         ['rgba(255, 100, 255, 0.3)', 'rgba(200, 50, 255, 0.2)'],
         ['rgba(100, 200, 255, 0.3)', 'rgba(50, 150, 255, 0.2)'],
@@ -360,145 +336,171 @@
         nebula.style.animation = `nebulaGlow ${duration}s ease-in-out infinite alternate ${delay}s`;
         space.appendChild(nebula);
     }
+    
+    // 创建星河
     const milkyWay = document.createElement('div');
     milkyWay.className = 'milky-way';
     space.appendChild(milkyWay);
     
-    const audio = document.getElementById('paradise-song');
-    const playPauseBtn = document.getElementById('play-pause-btn');
-    const songStatus = document.getElementById('song-status');
-    const volumeControl = document.getElementById('volume-control');
-    const volumeText = document.getElementById('volume-text');
-    const currentTimeDisplay = document.getElementById('current-time');
-    const totalTimeDisplay = document.getElementById('total-time');
-    const vinylDisc = document.getElementById('vinyl-disc');
+    // ========== 隐形音乐系统 ==========
+    const bgm = document.getElementById('invisible-bgm');
+    const musicHint = document.getElementById('music-hint');
     
-    audio.volume = 0.3;
-    volumeText.textContent = '30%';
+    // 设置背景音乐音量（较低，不干扰）
+    bgm.volume = 0.2;
     
-    function updateVinylRotation() {
-        if (!audio.paused) vinylDisc.style.animation = 'spin 20s linear infinite';
-        else vinylDisc.style.animation = 'none';
-    }
-    function formatTime(seconds) {
-        const mins = Math.floor(seconds / 60);
-        const secs = Math.floor(seconds % 60);
-        return `${mins}:${secs.toString().padStart(2, '0')}`;
-    }
-    audio.addEventListener('loadedmetadata', function() {
-        totalTimeDisplay.textContent = formatTime(audio.duration);
-    });
-    audio.addEventListener('timeupdate', function() {
-        currentTimeDisplay.textContent = formatTime(audio.currentTime);
-    });
-    
-    window.addEventListener('load', function() {
-        setTimeout(() => {
-            audio.play().then(() => {
-                playPauseBtn.textContent = '⏸️';
-                songStatus.textContent = '再生中';
-                songStatus.style.color = '#00ff00';
-                updateVinylRotation();
+    // 优雅的自动播放策略
+    function startBackgroundMusic() {
+        // 尝试自动播放
+        const playPromise = bgm.play();
+        
+        if (playPromise !== undefined) {
+            playPromise.then(() => {
+                // 播放成功
+                console.log('🎵 パラダイス・カフェ 开始播放');
+                showMusicHint('🎵 パラダイス・カフェ 再生中', '#00ff00');
             }).catch(error => {
-                songStatus.textContent = 'クリックして再生';
-                songStatus.style.color = '#ff9900';
-                playPauseBtn.style.background = 'linear-gradient(135deg, #ff9900, #ff5500)';
+                // 自动播放被阻止
+                console.log('音乐自动播放被阻止，等待用户交互');
+                showMusicHint('🎵 クリックして再生', '#ff9900');
+                
+                // 等待用户第一次点击
+                document.addEventListener('click', function startOnClick() {
+                    bgm.play().then(() => {
+                        showMusicHint('🎵 再生開始', '#00ff00');
+                    });
+                    // 只执行一次
+                    document.removeEventListener('click', startOnClick);
+                }, { once: true });
             });
-        }, 1000);
-    });
-    
-    playPauseBtn.addEventListener('click', function() {
-        if (audio.paused) {
-            audio.play();
-            this.textContent = '⏸️';
-            songStatus.textContent = '再生中';
-            songStatus.style.color = '#00ff00';
-            this.style.background = 'linear-gradient(135deg, #8b4513, #d2691e)';
-        } else {
-            audio.pause();
-            this.textContent = '▶️';
-            songStatus.textContent = '一時停止';
-            songStatus.style.color = '#ff9900';
         }
-        updateVinylRotation();
+    }
+    
+    // 显示短暂的音乐提示
+    function showMusicHint(text, color) {
+        musicHint.textContent = text;
+        musicHint.style.color = color;
+        musicHint.style.opacity = '1';
+        
+        // 3秒后淡出
+        setTimeout(() => {
+            musicHint.style.opacity = '0';
+        }, 3000);
+    }
+    
+    // 页面加载后开始音乐
+    window.addEventListener('load', function() {
+        // 等待1秒，让页面先加载
+        setTimeout(startBackgroundMusic, 1000);
     });
     
-    volumeControl.addEventListener('input', function() {
-        const volume = parseFloat(this.value);
-        audio.volume = volume;
-        volumeText.textContent = Math.round(volume * 100) + '%';
-        const volumeIcon = this.previousElementSibling;
-        if (volume === 0) volumeIcon.textContent = '🔇';
-        else if (volume < 0.5) volumeIcon.textContent = '🔉';
-        else volumeIcon.textContent = '🔊';
-    });
-    
-    vinylDisc.addEventListener('click', function() {
-        playPauseBtn.click();
-    });
-    
+    // 键盘快捷键控制
     document.addEventListener('keydown', function(e) {
+        // 空格键：播放/暂停
         if (e.code === 'Space') {
             e.preventDefault();
-            playPauseBtn.click();
+            if (bgm.paused) {
+                bgm.play();
+                showMusicHint('🎵 再生再開', '#00ff00');
+            } else {
+                bgm.pause();
+                showMusicHint('⏸️ 一時停止', '#ff9900');
+            }
         }
+        // 上箭头：音量+
         if (e.code === 'ArrowUp') {
             e.preventDefault();
-            const newVolume = Math.min(1, audio.volume + 0.1);
-            audio.volume = newVolume;
-            volumeControl.value = newVolume;
-            volumeText.textContent = Math.round(newVolume * 100) + '%';
+            bgm.volume = Math.min(1, bgm.volume + 0.1);
+            showMusicHint(`🔊 ${Math.round(bgm.volume * 100)}%`, '#ffff00');
         }
+        // 下箭头：音量-
         if (e.code === 'ArrowDown') {
             e.preventDefault();
-            const newVolume = Math.max(0, audio.volume - 0.1);
-            audio.volume = newVolume;
-            volumeControl.value = newVolume;
-            volumeText.textContent = Math.round(newVolume * 100) + '%';
+            bgm.volume = Math.max(0, bgm.volume - 0.1);
+            showMusicHint(`🔉 ${Math.round(bgm.volume * 100)}%`, '#ffff00');
+        }
+        // M键：静音切换
+        if (e.code === 'KeyM') {
+            e.preventDefault();
+            bgm.muted = !bgm.muted;
+            showMusicHint(bgm.muted ? '🔇 ミュート' : '🔊 ミュート解除', bgm.muted ? '#ff5555' : '#00ff00');
         }
     });
     
-    let isDragging = false;
-    let startX, startY, initialLeft, initialTop;
-    const player = document.getElementById('record-player');
+    // 可选：在页面角落添加极简控制
+    const style = document.createElement('style');
+    style.textContent = `
+        #music-control-corner {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            width: 30px;
+            height: 30px;
+            background: rgba(0,0,0,0.1);
+            border-radius: 50%;
+            border: 1px solid rgba(255,255,255,0.1);
+            z-index: 998;
+            opacity: 0.2;
+            transition: all 0.3s;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: rgba(255,255,255,0.5);
+        }
+        #music-control-corner:hover {
+            opacity: 0.8;
+            background: rgba(0,0,0,0.5);
+            border-color: rgba(255,215,0,0.5);
+            width: 120px;
+            border-radius: 15px;
+        }
+        #music-control-corner:hover::after {
+            content: ' 音楽';
+            margin-left: 5px;
+            font-size: 11px;
+        }
+    `;
+    document.head.appendChild(style);
     
-    player.addEventListener('mousedown', function(e) {
-        if (e.target.tagName === 'INPUT' || e.target.tagName === 'BUTTON') return;
-        isDragging = true;
-        startX = e.clientX;
-        startY = e.clientY;
-        const rect = player.getBoundingClientRect();
-        initialLeft = rect.left;
-        initialTop = rect.top;
-        player.style.cursor = 'grabbing';
-        player.style.transition = 'none';
+    // 创建角落控制点（可选）
+    const cornerControl = document.createElement('div');
+    cornerControl.id = 'music-control-corner';
+    cornerControl.innerHTML = '♪';
+    document.body.appendChild(cornerControl);
+    
+    // 角落控制点击事件
+    cornerControl.addEventListener('click', function(e) {
+        e.stopPropagation();
+        if (bgm.paused) {
+            bgm.play();
+            showMusicHint('🎵 再生開始', '#00ff00');
+        } else {
+            bgm.pause();
+            showMusicHint('⏸️ 一時停止', '#ff9900');
+        }
+    });
+    
+    // 角落控制右键菜单（音量控制）
+    cornerControl.addEventListener('contextmenu', function(e) {
         e.preventDefault();
-    });
-    document.addEventListener('mousemove', function(e) {
-        if (!isDragging) return;
-        const deltaX = e.clientX - startX;
-        const deltaY = e.clientY - startY;
-        let newLeft = initialLeft + deltaX;
-        let newTop = initialTop + deltaY;
-        const maxX = window.innerWidth - player.offsetWidth;
-        const maxY = window.innerHeight - player.offsetHeight;
-        newLeft = Math.max(0, Math.min(newLeft, maxX));
-        newTop = Math.max(0, Math.min(newTop, maxY));
-        player.style.left = newLeft + 'px';
-        player.style.top = newTop + 'px';
-        player.style.right = 'auto';
-        player.style.bottom = 'auto';
-    });
-    document.addEventListener('mouseup', function() {
-        if (isDragging) {
-            isDragging = false;
-            player.style.cursor = 'default';
-            player.style.transition = 'transform 0.3s';
-        }
+        e.stopPropagation();
+        
+        // 切换静音
+        bgm.muted = !bgm.muted;
+        showMusicHint(bgm.muted ? '🔇 ミュート' : '🔊 ミュート解除', bgm.muted ? '#ff5555' : '#00ff00');
+        
+        return false;
     });
     
-    updateVinylRotation();
-    console.log('🎵 パラダイス・カフェ プレイヤー準備完了');
+    // 双击角落控制显示音量提示
+    cornerControl.addEventListener('dblclick', function(e) {
+        e.stopPropagation();
+        showMusicHint(`音量: ${Math.round(bgm.volume * 100)}%`, '#ffff00');
+    });
+    
+    console.log('✨ パラダイス・カフェ ページロード完了');
     </script>
 </body>
 </html>
